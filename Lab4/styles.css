@@ -1,0 +1,263 @@
+@import url('https://fonts.googleapis.com/css?family=Lacquer|Bebas+Neue&display=swap');
+
+body {
+    background-color: #195c86;
+    overflow: hidden;
+}
+
+.calendar {
+    position: fixed;
+    width: 300px;
+    height: 300px;
+    left: calc(50vw - 150px);
+    top: calc(50vh - 100px);
+}
+
+.calTop {
+    height: 80px;
+    background-color: #e3646b;
+    border-radius: 40px 40px 0 0 ;
+}
+
+.calPage {
+    background-color:#d9ebf5;
+    position: relative;
+    top: -40px;
+    width: 300px;
+    height: 200px;
+    border-radius: 0 0 40px 40px;
+    font-family: 'Bebas Neue', sans-serif;
+    text-align: center;
+    color: #195c86;
+    font-size: 80px;
+    cursor: pointer;
+}
+
+.calPage p {
+    margin: 40px;
+}
+
+.p2 p {
+    position: relative;
+    top: 40px;
+}
+
+.drop {
+    transition: 1s;
+    animation: 2s ease dropPage;
+}
+
+.p1 {
+    position: absolute;
+    top: 80px;
+}
+
+@keyframes dropPage {
+    0% {
+        top: -40px;
+        left: 0px;
+        transform: rotate(0deg);
+        opacity: 1;
+    }
+    20% {
+        top: 20px;
+        left: -65px;
+        transform: rotate(30deg);
+    }
+    50% {
+        top: 500px;
+        opacity: 1;
+    }
+    51% {
+        top: -40px;
+        opacity: 0;
+        transform: rotate(0deg)
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+.ring {
+    position: absolute;
+    top: 10px;
+    width: 50px;
+    height: 50px;
+    background-color: #195c86;
+    border-radius: 50%;
+}
+
+.ring::after {
+    content: "";
+    display: block;
+    position: relative;
+    left: 10px;
+    top: -50px;
+    width: 30px;
+    border-radius: 20px;
+    background-color: #d9ebf5;
+    height: 90px;
+}
+
+.r1 {
+    left: 60px;
+}
+
+.r2 {
+    right: 60px;
+}
+
+.checkmark input {
+    display: none;
+}
+
+.info {
+    background-color: #d9ebf5;
+    padding: 10px 10px;
+    border-radius: 20px;
+    font-family: 'Bebas Neue';
+    color: #195c86;
+    font-size: 40px;
+    text-align: center;
+    max-width: 300px;
+    position: relative;
+    top: -220px;
+    left: 10px;
+    z-index: -1;
+    transform-origin: bottom left;
+    /* Combine CSS animation and transitions */
+    transition: 0.2s;
+    opacity: 0;
+}
+
+.checkmark input:checked ~ .info {
+    display: block;
+    animation: 0.3s ease-out popup;
+    opacity: 1;
+}
+
+@keyframes popup {
+    from {
+        transform: scale(0) rotate(90deg);
+        opacity: 0;
+    }
+    to {
+        transform: scale(1) rotate(0deg);
+        opacity: 1;
+    }
+}
+
+.notification {
+    position: absolute;
+    left: calc(50vw + 100px);
+    top: calc(50vh - 130px);
+    cursor: pointer;
+
+}
+
+.popup {
+    font-family: 'Bebas Neue', sans-serif;
+    background-color: #b1171f;
+    padding: 20px;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    display: block;
+    position: relative;
+    text-align: center;
+    color: #d9ebf5;
+    font-size: 40px;
+    cursor: pointer;
+}
+
+.popup::before {
+    content: "";
+    width: 70px;
+    height: 70px;
+    background-color: #eb232d;
+    height: 100%;
+    display: block;
+    position: absolute;
+    border-radius: 50%;
+    left: -5px;
+    top: -5px;
+    cursor: pointer;
+}
+
+.popup p {
+    position: relative;
+    top: -53px;
+    left: -3px;
+}
+
+img {
+    position: absolute;
+    width: 400px;
+    right: -20vw;
+    top: -25vh;
+    transition: 0.2s;
+}
+
+img:not(.fly) {
+    animation: 3s ease-out infinite wiggle;
+}
+
+img.fly {
+    animation: 5s ease-in fly;
+}
+
+@keyframes wiggle {
+    10% {
+        transform: rotate(-20deg)
+    }
+    15% {
+        transform: rotate(-25deg)
+    }
+    20% {
+        transform: rotate(-15deg)
+    }
+    25% {
+        transform: rotate(-25deg)
+    }
+    30% {
+        transform: rotate(-15deg)
+    }
+    35% {
+        transform: rotate(-20deg)
+    }
+    100% {
+        transform: rotate(-20deg)
+    }
+}
+
+@keyframes fly {
+    0% {
+        /* transform: rotate(-20deg); */
+        animation-timing-function: ease-out;
+    }
+    10% {
+        transform: rotate(10deg);
+    }
+    50% {
+        transform: rotate(-30deg);
+        right: 110vw;
+        top: 50vh;
+        opacity: 1;
+    }
+    55% {
+        opacity: 0;
+        right: 110vw;
+    }
+    60% {
+        right: -40vw;
+        top: -35vh;
+        display: block;
+        animation-timing-function: ease;
+        transform: rotate(-10deg);
+    }
+    100% {
+        opacity: 1;
+        right: -20vw;
+        top: -25vh;
+    }
+}

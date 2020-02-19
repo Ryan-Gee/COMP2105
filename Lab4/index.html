@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lab 4</title>
+    <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+    <div class="calendar" >
+        <div class="calTop">
+            <div class="ring r1"></div>
+            <div class="ring r2"></div>
+        </div>
+        <div class="calPage p1">
+            <p>2019</p>
+        </div>
+        <div class="calPage p2" onmouseenter="dropPage(this)">
+            <p>2020</p>
+        </div>
+    </div>
+    <div class="notification">
+        <label class="checkmark">
+            <input type="checkbox">
+            <span class="popup"><p>1</p></span>
+            <div class="info"><p>You've got an event coming up!</p></div>
+        </label>
+    </div>
+    <img class="" onclick="throwPlane(this)" src="plane.png" alt="plane">
+</body>
+<script src="main.js"></script>
+</html>
